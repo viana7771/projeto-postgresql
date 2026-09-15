@@ -2,7 +2,8 @@
 ```ignore
 # PostgreSQL - Estudos e Prática de SQL
 
-Projeto desenvolvido durante meus estudos de PostgreSQL e SQL.
+Projeto de estudos e análise de dados utilizando PostgreSQL, com foco em consultas SQL,
+relacionamentos entre tabelas e extração de informações para apoio à análise.
 
 O objetivo é documentar minha evolução na utilização de bancos de dados relacionais,
 explorando consultas SQL, relacionamentos entre tabelas e análise de dados.
