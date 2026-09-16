@@ -1,4 +1,3 @@
-
 ```ignore
 # PostgreSQL - Estudos e Prática de SQL
 
@@ -44,7 +43,42 @@ sobre produtos, lojas e clientes/jornada de compra.
 ## Estrutura do projeto
 
 ```text
-sql/
-├── database.sql
-└── queries.sql
+sales
+├── customers
+│   ├── customer_id
+│   ├── cpf
+│   ├── first_name
+│   ├── last_name
+│   ├── state
+│   ├── city
+│   ├── birth_date
+│   ├── income
+│   ├── score
+│   ├── professional_status
+│   ├── email
+│   └── mobile
+│
+├── funnel
+│   ├── visit_id
+│   ├── customer_id
+│   ├── store_id
+│   ├── product_id
+│   ├── visit_page_date
+│   ├── add_to_cart_date
+│   ├── start_checkout_date
+│   ├── finish_checkout_date
+│   ├── paid_date
+│   └── discount
+│
+├── products
+│   ├── product_id
+│   ├── brand
+│   ├── model
+│   ├── model_year
+│   └── price
+│
+└── stores
+    ├── store_name
+    ├── store_cnpj
+    └── store_id
 ```
