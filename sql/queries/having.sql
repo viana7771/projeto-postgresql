@@ -42,10 +42,33 @@ HAVING avg(price) > 50000
 -- 5. Quais lojas possuem mais de 100 registros
 -- no funil?
 
+SELECT
+    store_name,
+    count(visit_id) 
+from sales.stores as s 
+    left JOIN sales.funnel as f
+    on s.store_id = f.store_id
+GROUP BY store_name
+HAVING count(visit_id) > 100
 
 -- 6. Quais produtos aparecem mais de 50 vezes
 -- no funil?
 
+SELECT
+    brand,
+    count(visit_id)
+from sales.products as p
+    left JOIN sales.funnel as f
+    on p.product_id = f.product_id
+GROUP BY product_id
+HAVING count(visit_id) > 50
 
 -- 7. Quais estados possuem renda média superior
 -- a R$ 8.000?
+
+SELECT
+    state,
+    round(avg(income), 2) as renda_media
+from sales.customers
+GROUP BY state
+HAVING avg(income) > 8000
