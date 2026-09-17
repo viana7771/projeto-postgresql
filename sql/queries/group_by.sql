@@ -81,11 +81,32 @@ GROUP BY brand
 -- 10. Quantos registros existem no funil para
 -- cada loja?
 
-
+SELECT
+    store_name,
+    count(visit_id)
+from sales.stores as s 
+    left JOIN sales.funnel as f
+    on s.store_id = f.store_id
+GROUP BY store_name
 
 -- 11. Quantos registros existem no funil para
 -- cada produto?
 
+SELECT
+    brand,
+    count(visit_id)
+from sales.products as p 
+    left JOIN sales.funnel as f 
+    on p.product_id = f.product_id
+GROUP BY product_id
 
 -- 12. Quantos registros existem no funil para
 -- cada cliente?
+
+SELECT
+    cpf,
+    count(visit_id)
+from sales.customers as c 
+    left JOIN sales.funnel as f
+    on c.customer_id = f.customer_id
+GROUP BY cpf
