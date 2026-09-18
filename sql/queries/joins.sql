@@ -68,10 +68,33 @@ from sales.funnel as f
 -- 5. Quais clientes aparecem no funil de vendas
 -- e quais produtos eles visualizaram?
 
-
+SELECT
+    visit_id,
+    concat(
+        first_name, ' ', last_name
+    ) as full_name,
+    brand, 
+    model
+from sales.funnel as f
+    left JOIN sales.customers as c
+        on f.customer_id = c.customer_id
+    left JOIN sales.products as p
+        on f.product_id = p.product_id
+     
 -- 6. Quais produtos receberam visitas e em quais lojas
 -- essas visitas ocorreram?
 
+SELECT
+    visit_id,
+    visit_page_date,
+    brand,
+    model,
+    store_name
+from sales.funnel as f
+    left JOIN sales.products as p
+        on f.product_id =  p.product_id
+    left JOIN sales.stores as s
+        on f.store_id = s.store_id
 
 -- 7. Quantos registros do funil existem por marca?
 
