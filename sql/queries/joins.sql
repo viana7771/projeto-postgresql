@@ -5,6 +5,15 @@
 -- 1. O setor comercial quer visualizar cada registro
 -- do funil junto com o nome do cliente correspondente.
 
+SELECT
+    visit_id,
+    concat(
+        first_name, ' ', last_name
+    ) as full_name
+from sales.funnel as f 
+    left JOIN sales.customers as s 
+    on f.customer_id = s.customer_id
+
 
 -- 2. O setor comercial quer visualizar cada registro
 -- do funil junto com as informações do produto.
