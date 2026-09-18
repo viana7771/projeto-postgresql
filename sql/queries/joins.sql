@@ -98,17 +98,59 @@ from sales.funnel as f
 
 -- 7. Quantos registros do funil existem por marca?
 
+SELECT
+    brand,
+    count(visit_id)
+from sales.funnel as f
+    left JOIN sales.products as p
+        on f.product_id = p.product_id
+GROUP BY brand
 
 -- 8. Quantos registros do funil existem por loja?
 
+SELECT
+    store_name,
+    count(visit_id)
+from sales.funnel as f
+    left JOIN sales.stores as s
+        on f.store_id = s.store_id
+GROUP BY store_name
 
 -- 9. Quantos clientes diferentes passaram pelo funil
 -- de cada loja?
 
+SELECT
+    count(cpf),
+    store_name
+from sales.funnel as f
+    left JOIN sales.customers as c
+        on f.customer_id = c.customer_id
+    left JOIN sales.stores as s
+        on f.store_id = s.store_id
+GROUP BY store_name
 
 -- 10. Qual é a renda média dos clientes que passaram
 -- pelo funil em cada loja?
 
+SELECT
+    store_name,
+    round(avg(income), 2) as renda_media
+from sales.funnel as f
+    left JOIN sales.customers as c
+        on f.customer_id = c.customer_id
+    left JOIN sales.stores as s
+        on f.store_id = s.store_id
+GROUP BY store_name
 
 -- 11. Qual é o preço médio dos produtos que foram
 -- visualizados em cada loja?
+
+SELECT
+    store_name,
+    round(avg(price), 2) as preco_medio
+from sales.funnel as f
+    left JOIN sales.products as p
+        on f.product_id = p.product_id
+    left JOIN sales.stores as s
+        on f.store_id = s.store_id
+GROUP BY store_name
