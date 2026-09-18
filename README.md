@@ -1,4 +1,11 @@
 * [ ] 
+* [ ] 
+
+## 📚 Aprendizados
+
+Durante o desenvolvimento do projeto, consolidei conhecimentos de SQL que já havia estudado anteriormente e retomei a prática de construção de consultas.
+
+O projeto também ajudou a desenvolver meu raciocínio para transformar perguntas de negócio em consultas SQL, principalmente utilizando agregações, agrupamentos e JOINs entre diferentes tabelas.
 
 ```ignore
 # PostgreSQL - Estudos e Prática de SQL
@@ -6,10 +13,12 @@
 Projeto de estudos e análise de dados utilizando PostgreSQL, com foco em consultas SQL,
 relacionamentos entre tabelas e extração de informações para apoio à análise.
 
+
 ## 🎯 Objetivo
 
 Este projeto foi desenvolvido para praticar SQL aplicado à análise de dados e responder perguntas de negócio utilizando um banco de dados relacional.
 O foco principal foi desenvolver consultas capazes de extrair informações relevantes sobre clientes, lojas, cidades, estados e etapas do funil de vendas.
+
 
 ## Tecnologias
 
@@ -19,16 +28,19 @@ O foco principal foi desenvolver consultas capazes de extrair informações rele
 - Git
 - GitHub
 
+
 ## Banco de dados
 
 O projeto utiliza uma base de dados relacionada a vendas, contendo informações
 sobre produtos, lojas e clientes/jornada de compra.
+
 
 ### Principais tabelas
 
 - `products`
 - `stores`
 - `funnel`
+
 
 ## Conteúdos estudados
 
@@ -43,6 +55,7 @@ sobre produtos, lojas e clientes/jornada de compra.
 - Operadores
 - Filtros e condições
 - Manipulação de dados
+
 
 ## Estrutura do projeto
 
@@ -86,6 +99,7 @@ sales
     ├── store_cnpj
     └── store_id
 
+
 ## 📊 Perguntas de negócio
 
 Durante o projeto foram elaboradas e respondidas perguntas envolvendo:
@@ -100,6 +114,7 @@ Durante o projeto foram elaboradas e respondidas perguntas envolvendo:
 - Agregações e agrupamentos;
 - Identificação de padrões relevantes nos dados.
 
+
 ## 🔎 Abordagem
 
 As consultas foram desenvolvidas buscando simular situações reais de análise de negócio.
@@ -112,4 +127,20 @@ O processo utilizado foi:
 4. Construir a consulta SQL;
 5. Validar os resultados;
 6. Interpretar as informações obtidas.
+
+
+## 📚 Aprendizados
+
+Durante o desenvolvimento do projeto, consolidei conhecimentos de SQL que já havia estudado anteriormente e retomei a prática de construção de consultas.
+
+O projeto também ajudou a desenvolver meu raciocínio para transformar perguntas de negócio em consultas SQL, principalmente utilizando agregações, agrupamentos e JOINs entre diferentes tabelas.
+
+
+## 🚀 Próximos passos
+
+- Finalizar as perguntas envolvendo JOINs;
+- Revisar e otimizar as consultas desenvolvidas;
+- Criar novas perguntas de negócio;
+- Explorar consultas mais complexas;
+- Utilizar os resultados para construir uma análise visual no Power BI.
 ```
