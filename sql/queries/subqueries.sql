@@ -100,6 +100,18 @@ having avg(income) > (
 -- 7. Qual produto possui o maior preço entre todos
 -- os produtos?
 
+SELECT
+    product_id,
+    brand,
+    model,
+    model_year,
+    price
+from sales.products
+where price = (
+    SELECT
+        max(price)
+    from sales.products
+)
 
 -- 8. Quais produtos possuem o mesmo preço do produto
 -- mais caro da base?
