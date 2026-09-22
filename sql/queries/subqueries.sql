@@ -70,12 +70,13 @@ where price < (
 -- médio geral dos produtos?
 
 SELECT
-    brand
+    brand,
+    round(avg(price), 2) as preco_medio
 from sales.products
 GROUP BY brand
-having price > (
+having avg(price) > (
     SELECT
-        round(avg(price), 2)
+        avg(price)
     from sales.products
 )
 
