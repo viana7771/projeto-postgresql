@@ -83,6 +83,19 @@ having avg(price) > (
 -- 6. Quais clientes possuem renda maior que a renda média
 -- dos clientes do seu próprio estado?
 
+SELECT
+    concat(
+        first_name, ' ', last_name
+    ) as full_name,
+    state,
+    income
+from sales.customers
+GROUP BY customer_id
+having avg(income) > (
+    SELECT 
+        avg(income)
+    from sales.customers 
+)
 
 -- 7. Qual produto possui o maior preço entre todos
 -- os produtos?
