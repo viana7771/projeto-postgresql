@@ -116,6 +116,35 @@ where price = (
 -- 8. Quais produtos possuem o mesmo preço do produto
 -- mais caro da base?
 
+SELECT
+    product_id,
+    brand,
+    model,
+    model_year,
+    price
+from sales.products
+where price = (
+    SELECT
+        max(price)
+    from sales.products
+)
 
 -- 9. Quais lojas possuem mais registros no funil
 -- que a média de registros por loja?
+
+WITH registros_por_loja AS (
+    SELECT
+        store_id,
+        COUNT(*) AS quantidade_registros
+    FROM sales.funnel
+    GROUP BY store_id
+)
+
+SELECT
+    store_id,
+    quantidade_registros
+FROM registros_por_loja
+WHERE quantidade_registros > (
+    SELECT AVG(quantidade_registros)
+    FROM registros_por_loja
+);
