@@ -24,6 +24,19 @@ limit 5
 -- por marca e depois mostre as marcas cujo preço médio
 -- seja superior a R$ 50.000.
 
+with preco_medio_por_marca_cte as (
+    select
+        brand,
+        round(avg(price), 2) as preco_medio
+    from sales.products
+    group by brand
+)
+select
+    brand,
+    preco_medio
+from preco_medio_por_marca_cte
+where preco_medio > 50000
+order by preco_medio desc
 
 -- 3. Crie uma CTE para calcular a quantidade de registros
 -- do funil por loja.
