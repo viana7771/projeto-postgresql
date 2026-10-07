@@ -6,6 +6,19 @@
 -- por estado e depois mostre somente os estados com
 -- maior quantidade de clientes.
 
+with clientes_por_estado_cte as (
+    select
+        state,
+        count(customer_id) as quantidade_clientes
+    from sales.customers
+    group by state
+)
+select
+    state,
+    quantidade_clientes
+from clientes_por_estado_cte
+order by quantidade_clientes desc
+limit 5
 
 -- 2. Crie uma CTE para calcular o preço médio dos produtos
 -- por marca e depois mostre as marcas cujo preço médio
