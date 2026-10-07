@@ -41,6 +41,19 @@ order by preco_medio desc
 -- 3. Crie uma CTE para calcular a quantidade de registros
 -- do funil por loja.
 
+with registos_por_loja_cte as (
+    select
+        store_id,
+        count(funnel_id) as quantidade_registros
+    from sales.funnel
+    group by store_id
+)
+select
+    store_id,
+    quantidade_registros
+from registos_por_loja_cte
+group by store_id
+
 
 -- 4. Utilizando uma CTE, identifique as lojas que possuem
 -- quantidade de registros acima da média de todas as lojas.
