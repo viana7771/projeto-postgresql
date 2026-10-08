@@ -53,10 +53,31 @@ select
     quantidade_registros
 from registos_por_loja_cte
 
-
-
 -- 4. Utilizando uma CTE, identifique as lojas que possuem
 -- quantidade de registros acima da média de todas as lojas.
+
+
+with media_registros_lojas_cte as (
+    select
+        store_id,
+        count(visit_id) as contagem_registros
+    from sales.funnel
+    group by store_id
+),
+media_cte as (
+    select
+        avg(contagem_registros) as media_registos
+    from media_registros_lojas_cte
+)
+select
+    store_id,
+    contagem_registros
+from media_registros_lojas_cte
+where contagem_registros > (
+    select 
+        media_registos
+    from media_cte
+)
 
 
 -- 5. Crie uma CTE para calcular a quantidade de registros
