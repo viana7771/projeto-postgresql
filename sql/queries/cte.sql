@@ -52,7 +52,7 @@ select
     store_id,
     quantidade_registros
 from registos_por_loja_cte
-group by store_id
+
 
 
 -- 4. Utilizando uma CTE, identifique as lojas que possuem
