@@ -84,6 +84,13 @@ where contagem_registros > (
 -- do funil por produto e apresente os produtos mais
 -- visualizados.
 
+with registos_por_produto_CTE as (
+    select
+        product_id,
+        count(visit_id) as quantidade_registros
+    from sales.funnel
+    group by product_id
+)
 
 -- 6. Crie uma CTE para calcular a renda média por estado
 -- e apresente os estados ordenados pela renda média.
